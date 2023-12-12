@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
     [field: Header("Combat")]
     [SerializeField] private float attackRange;
     private bool usingTwoHands;
-    private float attackPower;
+   [SerializeField] private float attackPower;
     private float unarmedDamage = 20;
     private bool leftHandFree;
     private bool righthandFree;
@@ -153,12 +153,14 @@ public class Player : MonoBehaviour
         Debug.Log("light attack");
         if (usingTwoHands == true)
         {
-            ATK = attackPower + (1.2f * strength);
+            ATK = attackPower + (2 * strength);
         }
         else
         {
              ATK = attackPower + strength;
         }
+
+        ATK = ATK * 1.2f;
         StartCoroutine(AttackChargeUp(0.1f, lightDelay));
 
     }
@@ -170,12 +172,14 @@ public class Player : MonoBehaviour
         Debug.Log("heavy attack");
         if (usingTwoHands == true)
         {
-            ATK = attackPower + (1.5f * strength);
+            ATK = (attackPower + (2 * strength));
         }
         else
         {
-            ATK = attackPower + (1.4f * strength);
+            ATK =   (attackPower +  strength);
         }
+
+        ATK = ATK * 1.5f;
         StartCoroutine(AttackChargeUp(0.3f, heavyDelay));
     }
     private void PerformAttack()
@@ -187,7 +191,12 @@ public class Player : MonoBehaviour
 
         if (hit.collider != null)
         {
-
+            Debug.Log("hit something");
+            if(hit.collider.gameObject.layer == enemyLayer)
+            {
+                
+                Debug.Log(ATK);
+            }
         }
 
         ATK = 0;
