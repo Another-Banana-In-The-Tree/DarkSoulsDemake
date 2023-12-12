@@ -11,14 +11,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float staminaMax;
     [SerializeField] private float staminaTotal;
     [SerializeField] private float vitality;
-    [SerializeField] private float attunement;
+    //[SerializeField] private float attunement;
     [SerializeField] private float endurance;
     [SerializeField] private float strength;
     [SerializeField] private float dexterity;
-    [SerializeField] private float resistance;
-    [SerializeField] private float intelligence;
-    [SerializeField] private float faith;
-    [SerializeField] private float humanity;
+    //[SerializeField] private float resistance;
+   // [SerializeField] private float intelligence;
+   // [SerializeField] private float faith;
+   // [SerializeField] private float humanity;
 
 
 
@@ -45,10 +45,26 @@ public class Player : MonoBehaviour
 
     private WaitForSeconds dodgeWait;
     private WaitForSeconds dodgeInvulnerable;
-    private WaitForSeconds lightAttackDelay;
-    private WaitForSeconds heavyAttackDelay;
+    /*****************************************
+     * LIGHT ATTACK AND HEAVY ATTACK DELAYS SHOULD BECOME PROPERTIES OF THE WEAPONS 
+     * 
+     * 
+     * 
+     * 
+   ******************************************/
+    //private WaitForSeconds lightAttackDelay;
+   // private WaitForSeconds heavyAttackDelay;
     private WaitForSeconds itemUseDelay;
 
+    [field: Header("Combat")]
+    [SerializeField] private float attackRange;
+    private bool usingTwoHands;
+    private float attackPower;
+    private float unarmedDamage = 20;
+    private bool leftHandFree;
+    private bool righthandFree;
+    [SerializeField] private LayerMask enemyLayer;
+    private float ATK;
 
     private void Awake()
     {
@@ -59,8 +75,8 @@ public class Player : MonoBehaviour
         Controls.Init(this);
         dodgeWait = new WaitForSeconds(dodgeDelay);
         dodgeInvulnerable = new WaitForSeconds(dodgeIFrames);
-        lightAttackDelay = new WaitForSeconds(lightDelay);
-        heavyAttackDelay = new WaitForSeconds(heavyDelay);
+       // lightAttackDelay = new WaitForSeconds(lightDelay);
+       // heavyAttackDelay = new WaitForSeconds(heavyDelay);
         itemUseDelay = new WaitForSeconds(itemDelay);
             
         
@@ -93,10 +109,21 @@ public class Player : MonoBehaviour
 
 
     }
-
-    private IEnumerator AttackCoolDown(WaitForSeconds delay)
+    private IEnumerator AttackChargeUp(float chargeDelay, float animTime )
     {
-        yield return delay;
+        Debug.Log("charge started");
+        isAttacking = true;
+        yield return new WaitForSeconds(chargeDelay);
+        Debug.Log("charge ended");
+        StartCoroutine(AttackCoolDown(animTime));
+    }
+    private IEnumerator AttackCoolDown(float animTime)
+    {
+        Debug.Log("cooldown started");
+        PerformAttack();
+        yield return new WaitForSeconds( animTime);
+        Debug.Log("cooldown ended");
+        isAttacking = false;
     }
 
     public void TakeDamage(float damage)
@@ -108,4 +135,64 @@ public class Player : MonoBehaviour
     {
         staminaTotal -= usedStamina;
     }
+
+    private void SetMaxHealth()
+    {
+        healthMax = 385 + (15 * (vitality));
+    }
+    private void SetMaxStamina()
+    {
+        staminaMax = 80 + (8 * (endurance));
+    }
+
+
+    public void LightAttack()
+    {
+        if (isAttacking || isDodging) return;
+        isAttacking = true;
+        Debug.Log("light attack");
+        if (usingTwoHands == true)
+        {
+            ATK = attackPower + (1.2f * strength);
+        }
+        else
+        {
+             ATK = attackPower + strength;
+        }
+        StartCoroutine(AttackChargeUp(0.1f, lightDelay));
+
+    }
+
+    public void HeavyAttack()
+    {
+        if (isAttacking || isDodging) return;
+        isAttacking = true;
+        Debug.Log("heavy attack");
+        if (usingTwoHands == true)
+        {
+            ATK = attackPower + (1.5f * strength);
+        }
+        else
+        {
+            ATK = attackPower + (1.4f * strength);
+        }
+        StartCoroutine(AttackChargeUp(0.3f, heavyDelay));
+    }
+    private void PerformAttack()
+    {
+        RaycastHit2D hit;
+
+        hit = Physics2D.Raycast(gameObject.transform.position, _moveDir, attackRange);
+        Debug.DrawRay(gameObject.transform.position, _moveDir* attackRange, Color.red, lightDelay);
+
+        if (hit.collider != null)
+        {
+
+        }
+
+        ATK = 0;
+        //CalculateDamage(mv, enemyDef);
+    }
+
+    
 }

@@ -400,9 +400,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97589cf847a54c64aa6e660b70e01e21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthMax: 0
+  healthTotal: 0
+  staminaMax: 0
+  staminaTotal: 0
+  vitality: 0
+  endurance: 0
+  strength: 0
+  dexterity: 0
   _moveSpeed: 2.25
   _dodgeSpeed: 50
   encumberence: 1
+  dodgeDelay: 0
+  dodgeIFrames: 0
+  heavyDelay: 0
+  lightDelay: 0.2
+  itemDelay: 0
+  attackRange: 5
 --- !u!212 &1797383833
 SpriteRenderer:
   m_ObjectHideFlags: 0

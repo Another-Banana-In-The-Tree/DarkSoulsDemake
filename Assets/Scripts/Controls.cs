@@ -19,6 +19,11 @@ public class Controls : MonoBehaviour
             player.Dodge();
         };
 
+        _inputActions.Game.LightAttack.performed += ctx =>
+        {
+            player.LightAttack();
+        };
+
         EnableGame();
     }
 

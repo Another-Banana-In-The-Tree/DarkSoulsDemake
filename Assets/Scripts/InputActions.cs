@@ -209,7 +209,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a05a242e-f977-45f3-94c7-f09fdb35657b"",
-                    ""path"": ""<Keyboard>/#(X)"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -242,7 +242,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2b281132-332e-4d04-94b8-967462797d60"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
