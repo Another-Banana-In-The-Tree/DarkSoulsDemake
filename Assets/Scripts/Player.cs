@@ -6,14 +6,27 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     Vector2 _moveDir;
+    [field: Header("Speed")]
     [SerializeField] float _moveSpeed;
     [SerializeField] float _dodgeSpeed;
     [SerializeField] float encumberence;
     private bool isDodging;
     private bool isAttacking;
     private bool iFrameActive;
+    [field: Header("Delays")]
+    [SerializeField] private float dodgeDelay;
+    [SerializeField] private float dodgeIFrames;
+    [SerializeField] private float heavyDelay;
+    [SerializeField] private float lightDelay;
+    [SerializeField] private float itemDelay;
+   // [SerializeField] private float 
+
+
     private WaitForSeconds dodgeWait;
     private WaitForSeconds dodgeInvulnerable;
+    private WaitForSeconds lightAttackDelay;
+    private WaitForSeconds heavyAttackDelay;
+    private WaitForSeconds itemUseDelay;
 
 
     private void Awake()
@@ -23,7 +36,13 @@ public class Player : MonoBehaviour
     void Start()
     {
         Controls.Init(this);
-        dodgeWait = new WaitForSeconds(0.2f);
+        dodgeWait = new WaitForSeconds(dodgeDelay);
+        dodgeInvulnerable = new WaitForSeconds(dodgeIFrames);
+        lightAttackDelay = new WaitForSeconds(lightDelay);
+        heavyAttackDelay = new WaitForSeconds(heavyDelay);
+        itemUseDelay = new WaitForSeconds(itemDelay);
+            
+        
     }
 
     void FixedUpdate()
@@ -52,5 +71,10 @@ public class Player : MonoBehaviour
         isDodging = false;
 
 
+    }
+
+    private IEnumerator AttackCoolDown(WaitForSeconds delay)
+    {
+        yield return delay;
     }
 }
