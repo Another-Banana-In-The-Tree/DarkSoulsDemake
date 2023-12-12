@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     //MOVEMENT
     Rigidbody2D rb;
     Vector2 _moveDir;
+    Vector2 facingDirection;
     [field: Header("Speed")]
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _dodgeSpeed;
@@ -64,11 +65,12 @@ public class Player : MonoBehaviour
     private bool leftHandFree;
     private bool righthandFree;
     [SerializeField] private LayerMask enemyLayer;
-    private float ATK;
+    [SerializeField]private float ATK;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        facingDirection = Vector2.up;
     }
     void Start()
     {
@@ -92,6 +94,11 @@ public class Player : MonoBehaviour
     public void SetMovmentDirection(Vector2 dir)
     {
         _moveDir = dir.normalized;
+        if(_moveDir != Vector2.zero)
+        {
+            Debug.Log(facingDirection);
+            facingDirection = _moveDir;
+        }
     }
     public void Dodge()
     {
@@ -186,20 +193,20 @@ public class Player : MonoBehaviour
     {
         RaycastHit2D hit;
 
-        hit = Physics2D.Raycast(gameObject.transform.position, _moveDir, attackRange);
-        Debug.DrawRay(gameObject.transform.position, _moveDir* attackRange, Color.red, lightDelay);
+        hit = Physics2D.Raycast(gameObject.transform.position, facingDirection , attackRange);
+        Debug.DrawRay(gameObject.transform.position, facingDirection * attackRange, Color.red, lightDelay);
 
         if (hit.collider != null)
         {
             Debug.Log("hit something");
             if(hit.collider.gameObject.layer == enemyLayer)
             {
-                
-                Debug.Log(ATK);
+                Debug.Log("layer worked");
+                Debug.Log(ATK.ToString());
             }
         }
 
-        ATK = 0;
+        //ATK = 0;
         //CalculateDamage(mv, enemyDef);
     }
 

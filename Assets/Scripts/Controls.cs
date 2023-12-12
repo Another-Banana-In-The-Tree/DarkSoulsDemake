@@ -23,6 +23,10 @@ public class Controls : MonoBehaviour
         {
             player.LightAttack();
         };
+        _inputActions.Game.HeavyAttack.performed += ctx =>
+        {
+            player.HeavyAttack();
+        };
 
         EnableGame();
     }

@@ -536,14 +536,14 @@ MonoBehaviour:
   staminaTotal: 0
   vitality: 0
   endurance: 0
-  strength: 0
+  strength: 2
   dexterity: 0
   _moveSpeed: 2.25
   _dodgeSpeed: 50
   encumberence: 1
   dodgeDelay: 0
   dodgeIFrames: 0
-  heavyDelay: 0
+  heavyDelay: 0.5
   lightDelay: 0.2
   itemDelay: 0
   attackRange: 5
@@ -551,6 +551,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  ATK: 0
 --- !u!212 &1797383833
 SpriteRenderer:
   m_ObjectHideFlags: 0
