@@ -36,25 +36,25 @@ public class WeaponBase : MonoBehaviour
     
     private IEnumerator AttackChargeUp(float chargeDelay, float animTime)
     {
-        Debug.Log("charge started");
+       // Debug.Log("charge started");
        
         yield return new WaitForSeconds(chargeDelay);
-        Debug.Log("charge ended");
+       // Debug.Log("charge ended");
         StartCoroutine(AttackCoolDown(animTime));
     }
     private IEnumerator AttackCoolDown(float animTime)
     {
-        Debug.Log("cooldown started");
+       // Debug.Log("cooldown started");
         PerformAttack();
         yield return new WaitForSeconds(animTime);
-        Debug.Log("cooldown ended");
+        //Debug.Log("cooldown ended");
         player.AttackSwitch();
     }
     private void LightAttack()
     {
 
         player.AttackSwitch();
-        Debug.Log("light attack");
+       // Debug.Log("light attack");
         if (usingTwoHands == true)
         {
             ATK = attackPower + (2 * strength);
@@ -73,7 +73,7 @@ public class WeaponBase : MonoBehaviour
     {
 
         player.AttackSwitch();
-        Debug.Log("heavy attack");
+       // Debug.Log("heavy attack");
         if (usingTwoHands == true)
         {
             ATK = (attackPower + (2 * strength));
@@ -95,10 +95,15 @@ public class WeaponBase : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log("hit something");
+            IDamageable target = hit.collider.gameObject.GetComponent<IDamageable>();
+            if(target != null)
+            {
+                target.TakeDamage(ATK);
+            }
+           // Debug.Log("hit something");
             if (hit.collider.gameObject.layer == enemyLayer)
             {
-                Debug.Log("layer worked");
+               // Debug.Log("layer worked");
                 Debug.Log(ATK.ToString());
             }
         }
