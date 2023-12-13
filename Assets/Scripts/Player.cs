@@ -38,14 +38,16 @@ public class Player : MonoBehaviour
     [field: Header("Delays")]
     [SerializeField] private float dodgeDelay;
     [SerializeField] private float dodgeIFrames;
-    [SerializeField] private float heavyDelay;
-    [SerializeField] private float lightDelay;
+    //[SerializeField] private float heavyDelay;
+   // [SerializeField] private float lightDelay;
     [SerializeField] private float itemDelay;
    // [SerializeField] private float 
 
 
     private WaitForSeconds dodgeWait;
     private WaitForSeconds dodgeInvulnerable;
+
+    
     /*****************************************
      * LIGHT ATTACK AND HEAVY ATTACK DELAYS SHOULD BECOME PROPERTIES OF THE WEAPONS 
      * 
@@ -58,14 +60,16 @@ public class Player : MonoBehaviour
     private WaitForSeconds itemUseDelay;
 
     [field: Header("Combat")]
-    [SerializeField] private float attackRange;
-    private bool usingTwoHands;
-   [SerializeField] private float attackPower;
+    [SerializeField] private WeaponBase weapon;
+
+   // [SerializeField] private float attackRange;
+    [SerializeField]private bool usingTwoHands;
+   //[SerializeField] private float attackPower;
     private float unarmedDamage = 20;
     private bool leftHandFree;
     private bool righthandFree;
-    [SerializeField] private LayerMask enemyLayer;
-    [SerializeField]private float ATK;
+   // [SerializeField] private LayerMask enemyLayer;
+   // [SerializeField]private float ATK;
 
     private void Awake()
     {
@@ -116,22 +120,7 @@ public class Player : MonoBehaviour
 
 
     }
-    private IEnumerator AttackChargeUp(float chargeDelay, float animTime )
-    {
-        Debug.Log("charge started");
-        isAttacking = true;
-        yield return new WaitForSeconds(chargeDelay);
-        Debug.Log("charge ended");
-        StartCoroutine(AttackCoolDown(animTime));
-    }
-    private IEnumerator AttackCoolDown(float animTime)
-    {
-        Debug.Log("cooldown started");
-        PerformAttack();
-        yield return new WaitForSeconds( animTime);
-        Debug.Log("cooldown ended");
-        isAttacking = false;
-    }
+    
 
     public void TakeDamage(float damage)
     {
@@ -155,60 +144,21 @@ public class Player : MonoBehaviour
 
     public void LightAttack()
     {
-        if (isAttacking || isDodging) return;
-        isAttacking = true;
-        Debug.Log("light attack");
-        if (usingTwoHands == true)
-        {
-            ATK = attackPower + (2 * strength);
-        }
-        else
-        {
-             ATK = attackPower + strength;
-        }
+        weapon.Attack(facingDirection, true, strength, usingTwoHands);
 
-        ATK = ATK * 1.2f;
-        StartCoroutine(AttackChargeUp(0.1f, lightDelay));
 
     }
 
     public void HeavyAttack()
     {
-        if (isAttacking || isDodging) return;
-        isAttacking = true;
-        Debug.Log("heavy attack");
-        if (usingTwoHands == true)
-        {
-            ATK = (attackPower + (2 * strength));
-        }
-        else
-        {
-            ATK =   (attackPower +  strength);
-        }
+        weapon.Attack(facingDirection, false, strength, usingTwoHands);
 
-        ATK = ATK * 1.5f;
-        StartCoroutine(AttackChargeUp(0.3f, heavyDelay));
     }
-    private void PerformAttack()
+
+
+    public void AttackSwitch()
     {
-        RaycastHit2D hit;
-
-        hit = Physics2D.Raycast(gameObject.transform.position, facingDirection , attackRange);
-        Debug.DrawRay(gameObject.transform.position, facingDirection * attackRange, Color.red, lightDelay);
-
-        if (hit.collider != null)
-        {
-            Debug.Log("hit something");
-            if(hit.collider.gameObject.layer == enemyLayer)
-            {
-                Debug.Log("layer worked");
-                Debug.Log(ATK.ToString());
-            }
-        }
-
-        //ATK = 0;
-        //CalculateDamage(mv, enemyDef);
+        isAttacking = !isAttacking;
     }
-
     
 }
