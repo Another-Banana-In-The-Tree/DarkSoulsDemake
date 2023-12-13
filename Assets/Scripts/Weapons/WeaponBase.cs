@@ -57,14 +57,14 @@ public class WeaponBase : MonoBehaviour
        Debug.Log("light attack");
         if (usingTwoHands == true)
         {
-            ATK = attackPower + strength * 2;
+            ATK = attackPower + attackPower * 1.2f * ((strength * 2)/99);
         }
         else
         {
-            ATK = attackPower + strength;
+            ATK = attackPower + attackPower * 1.2f * ((strength) / 99);
         }
 
-        ATK = ATK * 1.2f;
+       // ATK = ATK * 1.2f;
         StartCoroutine(AttackChargeUp(0.1f, lightDelay));
 
     }
@@ -76,15 +76,15 @@ public class WeaponBase : MonoBehaviour
        Debug.Log("heavy attack");
         if (usingTwoHands == true)
         {
-            ATK = attackPower + strength * 2;
+            ATK = attackPower + attackPower * 1.5f * ((strength * 2) / 99);
         }
         else
         {
-            ATK = attackPower + strength;
+            ATK = attackPower + attackPower * 1.5f * ((strength) / 99);
         }
 
 
-        ATK = ATK * 1.5f;
+       // ATK = ATK * 1.5f;
 
         StartCoroutine(AttackChargeUp(0.3f, heavyDelay));
     }

@@ -7,5 +7,10 @@ public class Enemy : MonoBehaviour, IDamageable
 
    [field:SerializeField] public float Health { get; set; }
     [field: SerializeField] public float defenceV { get; set; }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
     
 }
