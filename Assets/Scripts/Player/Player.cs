@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
         _moveDir = dir.normalized;
         if(_moveDir != Vector2.zero)
         {
-            Debug.Log(facingDirection);
+           // Debug.Log(facingDirection);
             facingDirection = _moveDir;
         }
     }

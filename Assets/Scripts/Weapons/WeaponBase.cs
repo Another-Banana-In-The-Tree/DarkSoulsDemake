@@ -54,10 +54,10 @@ public class WeaponBase : MonoBehaviour
     {
 
         player.AttackSwitch();
-       // Debug.Log("light attack");
+       Debug.Log("light attack");
         if (usingTwoHands == true)
         {
-            ATK = attackPower + (2 * strength);
+            ATK = attackPower + strength * 2;
         }
         else
         {
@@ -71,19 +71,21 @@ public class WeaponBase : MonoBehaviour
 
     private void HeavyAttack()
     {
-
+        
         player.AttackSwitch();
-       // Debug.Log("heavy attack");
+       Debug.Log("heavy attack");
         if (usingTwoHands == true)
         {
-            ATK = (attackPower + (2 * strength));
+            ATK = attackPower + strength * 2;
         }
         else
         {
-            ATK = (attackPower + strength);
+            ATK = attackPower + strength;
         }
 
+
         ATK = ATK * 1.5f;
+
         StartCoroutine(AttackChargeUp(0.3f, heavyDelay));
     }
     private void PerformAttack()
