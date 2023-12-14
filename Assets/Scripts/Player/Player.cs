@@ -48,19 +48,14 @@ public class Player : MonoBehaviour
     private WaitForSeconds dodgeInvulnerable;
 
     
-    /*****************************************
-     * LIGHT ATTACK AND HEAVY ATTACK DELAYS SHOULD BECOME PROPERTIES OF THE WEAPONS 
-     * 
-     * 
-     * 
-     * 
-   ******************************************/
+   
     //private WaitForSeconds lightAttackDelay;
    // private WaitForSeconds heavyAttackDelay;
     private WaitForSeconds itemUseDelay;
 
     [field: Header("Combat")]
-    [SerializeField] private WeaponBase weapon;
+    [SerializeField] private WeaponInventoryitem Currentweapon;
+    [SerializeField] private Attack attackScript;
 
    // [SerializeField] private float attackRange;
     [SerializeField]private bool usingTwoHands;
@@ -68,13 +63,19 @@ public class Player : MonoBehaviour
     private float unarmedDamage = 20;
     private bool leftHandFree;
     private bool righthandFree;
-   // [SerializeField] private LayerMask enemyLayer;
-   // [SerializeField]private float ATK;
+    // [SerializeField] private LayerMask enemyLayer;
+    // [SerializeField]private float ATK;
+
+    [field: Header("MenuSystems")]
+    [SerializeField] private bool menuActive;
+    [SerializeField] private PlayerEquipmentController equipment;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         facingDirection = Vector2.up;
+        equipment.InitPlayer(this);
+        attackScript.SetPlayer(this);
     }
     void Start()
     {
@@ -144,21 +145,49 @@ public class Player : MonoBehaviour
 
     public void LightAttack()
     {
-        weapon.Attack(facingDirection, true, strength, usingTwoHands);
+        if (Currentweapon == null) return;
+        attackScript.AttackAction(facingDirection, true, strength, usingTwoHands);
 
 
     }
 
     public void HeavyAttack()
     {
-        weapon.Attack(facingDirection, false, strength, usingTwoHands);
+        if (Currentweapon == null) return;
+        attackScript.AttackAction(facingDirection, false, strength, usingTwoHands);
 
     }
-
+    public void InventoryMenu()
+    {
+        if (menuActive)
+        {
+            MenuClose();
+        }
+        else
+        {
+            MenuOpen();
+        }
+    }
+    private void MenuOpen()
+    {
+        equipment.Open();
+        menuActive = true;
+    }
+    private void MenuClose()
+    {
+        equipment.Close();
+        menuActive = false;
+    }
 
     public void AttackSwitch()
     {
         isAttacking = !isAttacking;
     }
     
+
+    public void EquipWeapon(WeaponInventoryitem weapon)
+    {
+        Currentweapon = weapon;
+        attackScript.SetCurrentWeapon(Currentweapon);
+    }
 }

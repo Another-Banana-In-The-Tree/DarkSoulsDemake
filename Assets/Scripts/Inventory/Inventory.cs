@@ -45,6 +45,13 @@ public class Inventory : ScriptableObject
         inventoryUI.InitInventory(this);
     }
 
+    public void CloseInventoryUI()
+    {
+        if(inventoryUI != null)
+        {
+            inventoryUI.gameObject.SetActive(false);
+        }
+    }
 
     public void AssignItem(InventoryItem item)
     {

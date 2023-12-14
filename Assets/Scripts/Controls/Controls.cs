@@ -28,6 +28,11 @@ public class Controls : MonoBehaviour
             player.HeavyAttack();
         };
 
+
+        _inputActions.Game.Menu.performed += ctx =>
+        {
+            player.InventoryMenu();
+        };
         EnableGame();
     }
 

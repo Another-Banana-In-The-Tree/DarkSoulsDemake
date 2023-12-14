@@ -12,6 +12,19 @@ public abstract class InventoryItem : ScriptableObject
     [SerializeField] Vector3 itemLocalPos;
     [SerializeField] Vector3 itemLocalRot;
 
+
+    [field: Header("Weapon Stuff")]
+
+    [SerializeField] public float heavyDelay;
+    [SerializeField] public float lightDelay;
+
+
+
+    [SerializeField] public float attackRange;
+    //private bool usingTwoHands;
+    [SerializeField] public float attackPower;
+    [SerializeField] public LayerMask enemyLayer;
+
     public GameObject GetPrefab()
     {
         return itemPrefab;

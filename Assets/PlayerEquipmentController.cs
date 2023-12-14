@@ -15,11 +15,26 @@ public class PlayerEquipmentController : MonoBehaviour
 
     private GameObject currentWeapon;
 
+    private Player player;
 
     private void Start()
     {
         inventory.InitInventory(this);
+        //inventory.OpenInventoryUI();
+    }
+
+    public void InitPlayer(Player playerObj)
+    {
+        player = playerObj;
+    }
+    public void Open()
+    {
         inventory.OpenInventoryUI();
+    }
+
+    public void Close()
+    {
+        inventory.CloseInventoryUI();
     }
 
     public void AssignWeaponItem(WeaponInventoryitem weaponInventoryitem)
@@ -36,7 +51,7 @@ public class PlayerEquipmentController : MonoBehaviour
     {
         DestroyIfNotNull(currentWeapon);
         currentWeapon = CreateNewItemInstance(item, rightHandAnchor);
-
+        player.EquipWeapon(item);
     }
 
     private void DestroyIfNotNull(GameObject obj)

@@ -736,6 +736,7 @@ GameObject:
   - component: {fileID: 1797383832}
   - component: {fileID: 1797383831}
   - component: {fileID: 1797383835}
+  - component: {fileID: 1797383836}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -796,8 +797,11 @@ MonoBehaviour:
   dodgeDelay: 0
   dodgeIFrames: 0
   itemDelay: 0
-  weapon: {fileID: 1852594869}
+  Currentweapon: {fileID: 0}
+  attackScript: {fileID: 1797383836}
   usingTwoHands: 1
+  menuActive: 0
+  equipment: {fileID: 1797383835}
 --- !u!212 &1797383833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -863,7 +867,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1852594868}
   - {fileID: 89146112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -885,59 +888,23 @@ MonoBehaviour:
   leftHandAnchor: {fileID: 0}
   rightHandAnchor: {fileID: 89146112}
   armourAnchor: {fileID: 0}
---- !u!1 &1852594867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1852594868}
-  - component: {fileID: 1852594869}
-  m_Layer: 0
-  m_Name: TestWeapon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1852594868
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852594867}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1797383834}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1852594869
+--- !u!114 &1797383836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852594867}
+  m_GameObject: {fileID: 1797383830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e172a2109d97e42a94624e98ba847e, type: 3}
+  m_Script: {fileID: 11500000, guid: c083430217b32194e9b03b1c4cbf122d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1797383832}
-  heavyDelay: 0.5
-  lightDelay: 0.2
-  attackRange: 5
-  attackPower: 100
+  player: {fileID: 0}
+  ATK: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  ATK: 0
 --- !u!1 &2062316522
 GameObject:
   m_ObjectHideFlags: 0

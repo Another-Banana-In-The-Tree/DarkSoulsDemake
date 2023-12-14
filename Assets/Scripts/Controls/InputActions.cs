@@ -71,6 +71,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""77b3cc76-add9-4180-8948-03528075aba8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -271,6 +280,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Useitem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7c86bc3b-7eda-401f-8f06-bc59605e53e8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -284,6 +304,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Game_HeavyAttack = m_Game.FindAction("HeavyAttack", throwIfNotFound: true);
         m_Game_LightAttack = m_Game.FindAction("LightAttack", throwIfNotFound: true);
         m_Game_Useitem = m_Game.FindAction("Useitem", throwIfNotFound: true);
+        m_Game_Menu = m_Game.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -350,6 +371,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_HeavyAttack;
     private readonly InputAction m_Game_LightAttack;
     private readonly InputAction m_Game_Useitem;
+    private readonly InputAction m_Game_Menu;
     public struct GameActions
     {
         private @InputActions m_Wrapper;
@@ -359,6 +381,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @HeavyAttack => m_Wrapper.m_Game_HeavyAttack;
         public InputAction @LightAttack => m_Wrapper.m_Game_LightAttack;
         public InputAction @Useitem => m_Wrapper.m_Game_Useitem;
+        public InputAction @Menu => m_Wrapper.m_Game_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -383,6 +406,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Useitem.started += instance.OnUseitem;
             @Useitem.performed += instance.OnUseitem;
             @Useitem.canceled += instance.OnUseitem;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -402,6 +428,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Useitem.started -= instance.OnUseitem;
             @Useitem.performed -= instance.OnUseitem;
             @Useitem.canceled -= instance.OnUseitem;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -426,5 +455,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnHeavyAttack(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
         void OnUseitem(InputAction.CallbackContext context);
+        void OnMenu(InputAction.CallbackContext context);
     }
 }
