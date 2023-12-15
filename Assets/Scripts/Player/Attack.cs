@@ -112,17 +112,19 @@ public class Attack : MonoBehaviour
     {
         RaycastHit2D hit;
 
-        hit = Physics2D.Raycast(gameObject.transform.position, facingDirection, weapon.attackRange);
+        hit = Physics2D.Raycast(gameObject.transform.position, facingDirection, weapon.attackRange, enemyLayer);
         Debug.DrawRay(gameObject.transform.position, facingDirection * weapon.attackRange, Color.red, weapon.lightDelay);
 
         if (hit.collider != null)
         {
-            IDamageable target = hit.collider.gameObject.GetComponent<IDamageable>();
-            if (target != null)
+            Debug.Log("hit something");
+            Debug.Log(hit.collider.gameObject.name);
+            if(hit.collider.gameObject.TryGetComponent(out IDamageable hitObject))
             {
-                target.TakeDamage(ATK);
+                Debug.Log("take Damage");
+                hitObject.TakeDamage(ATK);
             }
-            // Debug.Log("hit something");
+            
             if (hit.collider.gameObject.layer == enemyLayer)
             {
                 // Debug.Log("layer worked");

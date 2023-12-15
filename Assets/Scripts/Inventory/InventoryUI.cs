@@ -31,6 +31,7 @@ public class InventoryUI : MonoBehaviour
         {
             var slot = CreateSlot(inventory, item, itemCount);
             itemToSlotMap.Add(item, slot);
+
         }
         else
         {

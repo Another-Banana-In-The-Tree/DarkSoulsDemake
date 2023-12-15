@@ -67,4 +67,9 @@ public class PlayerEquipmentController : MonoBehaviour
         var itemInstance = Instantiate(item.GetPrefab(), anchor);
         return itemInstance;
     }
+
+    public void AddItem(InventoryItem item, int amount)
+    {
+        inventory.AddItem(item, amount);
+    }
 }

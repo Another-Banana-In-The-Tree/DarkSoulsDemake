@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d4b208470880ed47a7376fc825c795a, type: 3}
-  m_Name: New Inventory
+  m_Name: Inventory
   m_EditorClassIdentifier: 
   items:
   - item: {fileID: 11400000, guid: fed090daf31562541bd1aa06010f11a9, type: 2}
-    count: 1
-  - item: {fileID: 11400000, guid: 4ecc341cf2158c547b4a1dc51deb2ef0, type: 2}
     count: 1
   inventoryUIPrefab: {fileID: 2045062520298512950, guid: 4fe2829747a0eb747b9e3e7efe1a4cd6, type: 3}

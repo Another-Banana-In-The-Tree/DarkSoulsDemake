@@ -8,7 +8,7 @@ public interface IDamageable
     public float defenceV { get; set; }
     public void TakeDamage(float atk)
     {
-        Debug.Log("attack " + atk);
+       // Debug.Log("attack " + atk);
         float damage = 0;
        
 
@@ -23,6 +23,7 @@ public interface IDamageable
             damage = ((atk * atk) / defenceV)/3f;
         }
 
+        Debug.Log(damage);
         Health -= damage;
 
         if(Health <= 0) 
