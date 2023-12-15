@@ -10,7 +10,7 @@ public class Controls : MonoBehaviour
     {
         _inputActions = new InputActions();
 
-        _inputActions.Game.Move.performed += ctx =>
+        _inputActions.Movement.Move.performed += ctx =>
         {
             player.SetMovmentDirection(ctx.ReadValue<Vector2>());
         };
@@ -29,15 +29,24 @@ public class Controls : MonoBehaviour
         };
 
 
-        _inputActions.Game.Menu.performed += ctx =>
+        _inputActions.MenuControls.Menu.performed += ctx =>
         {
             player.InventoryMenu();
         };
         EnableGame();
     }
 
-    private static void EnableGame()
+    public static void EnableGame()
     {
         _inputActions.Game.Enable();
+        _inputActions.Movement.Enable();
+        _inputActions.MenuControls.Enable();
     }
+
+    public static void MenuMode()
+    {
+        _inputActions.Game.Disable();
+    }
+
+    
 }

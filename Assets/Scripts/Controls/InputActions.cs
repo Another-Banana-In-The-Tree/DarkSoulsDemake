@@ -71,15 +71,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Menu"",
-                    ""type"": ""Button"",
-                    ""id"": ""77b3cc76-add9-4180-8948-03528075aba8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -280,10 +271,174 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Useitem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Movement"",
+            ""id"": ""b56cdb81-5476-4b2f-b0a2-f0e551218bd4"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""aabeb40d-7292-4b17-9df1-93b43b8de850"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Joystick"",
+                    ""id"": ""5802bfc1-524f-4045-9697-32dd5b2c972c"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""4db84b9b-40d6-4b86-b8d0-b9b8f59d9966"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""66e2c5a2-fe06-4863-978c-d081f80da429"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f674163c-8164-4f67-9eed-e120fe6e4d9f"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""91c241af-f6cf-4246-bdda-7b5db2500635"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""5217d892-e3b8-4907-88ad-ddd21e00e7cd"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Up"",
+                    ""id"": ""34f3ce92-7bdd-4ac4-9c1d-b9caa54a3df5"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Down"",
+                    ""id"": ""e33dd6dd-93fc-4e58-bde0-90edfd55fd11"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Left"",
+                    ""id"": ""3e58e56d-c323-4024-ac98-e4e6be3893d8"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""id"": ""5fd4308b-eb75-4a19-b08f-bb5049e8b1af"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""MenuControls"",
+            ""id"": ""4742fc87-0c41-43fa-981d-25a1854ec516"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5bf3415-e808-4a49-be87-3b5fd663c450"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""941e7589-4ccd-4054-b418-c2c0d0110aff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""489cdb7a-77f2-47a3-8675-1c7513c7d23f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7c86bc3b-7eda-401f-8f06-bc59605e53e8"",
+                    ""id"": ""3a96711d-45a6-40e6-9656-2743529c82e2"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -304,7 +459,13 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Game_HeavyAttack = m_Game.FindAction("HeavyAttack", throwIfNotFound: true);
         m_Game_LightAttack = m_Game.FindAction("LightAttack", throwIfNotFound: true);
         m_Game_Useitem = m_Game.FindAction("Useitem", throwIfNotFound: true);
-        m_Game_Menu = m_Game.FindAction("Menu", throwIfNotFound: true);
+        // Movement
+        m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
+        m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
+        // MenuControls
+        m_MenuControls = asset.FindActionMap("MenuControls", throwIfNotFound: true);
+        m_MenuControls_Newaction = m_MenuControls.FindAction("New action", throwIfNotFound: true);
+        m_MenuControls_Menu = m_MenuControls.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -371,7 +532,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_HeavyAttack;
     private readonly InputAction m_Game_LightAttack;
     private readonly InputAction m_Game_Useitem;
-    private readonly InputAction m_Game_Menu;
     public struct GameActions
     {
         private @InputActions m_Wrapper;
@@ -381,7 +541,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @HeavyAttack => m_Wrapper.m_Game_HeavyAttack;
         public InputAction @LightAttack => m_Wrapper.m_Game_LightAttack;
         public InputAction @Useitem => m_Wrapper.m_Game_Useitem;
-        public InputAction @Menu => m_Wrapper.m_Game_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -406,9 +565,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Useitem.started += instance.OnUseitem;
             @Useitem.performed += instance.OnUseitem;
             @Useitem.canceled += instance.OnUseitem;
-            @Menu.started += instance.OnMenu;
-            @Menu.performed += instance.OnMenu;
-            @Menu.canceled += instance.OnMenu;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -428,9 +584,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Useitem.started -= instance.OnUseitem;
             @Useitem.performed -= instance.OnUseitem;
             @Useitem.canceled -= instance.OnUseitem;
-            @Menu.started -= instance.OnMenu;
-            @Menu.performed -= instance.OnMenu;
-            @Menu.canceled -= instance.OnMenu;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -448,6 +601,106 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public GameActions @Game => new GameActions(this);
+
+    // Movement
+    private readonly InputActionMap m_Movement;
+    private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
+    private readonly InputAction m_Movement_Move;
+    public struct MovementActions
+    {
+        private @InputActions m_Wrapper;
+        public MovementActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Movement_Move;
+        public InputActionMap Get() { return m_Wrapper.m_Movement; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MovementActions set) { return set.Get(); }
+        public void AddCallbacks(IMovementActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+        }
+
+        private void UnregisterCallbacks(IMovementActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+        }
+
+        public void RemoveCallbacks(IMovementActions instance)
+        {
+            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMovementActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MovementActions @Movement => new MovementActions(this);
+
+    // MenuControls
+    private readonly InputActionMap m_MenuControls;
+    private List<IMenuControlsActions> m_MenuControlsActionsCallbackInterfaces = new List<IMenuControlsActions>();
+    private readonly InputAction m_MenuControls_Newaction;
+    private readonly InputAction m_MenuControls_Menu;
+    public struct MenuControlsActions
+    {
+        private @InputActions m_Wrapper;
+        public MenuControlsActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Newaction => m_Wrapper.m_MenuControls_Newaction;
+        public InputAction @Menu => m_Wrapper.m_MenuControls_Menu;
+        public InputActionMap Get() { return m_Wrapper.m_MenuControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuControlsActions set) { return set.Get(); }
+        public void AddCallbacks(IMenuControlsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
+            @Menu.started += instance.OnMenu;
+            @Menu.performed += instance.OnMenu;
+            @Menu.canceled += instance.OnMenu;
+        }
+
+        private void UnregisterCallbacks(IMenuControlsActions instance)
+        {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
+            @Menu.started -= instance.OnMenu;
+            @Menu.performed -= instance.OnMenu;
+            @Menu.canceled -= instance.OnMenu;
+        }
+
+        public void RemoveCallbacks(IMenuControlsActions instance)
+        {
+            if (m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMenuControlsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MenuControlsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MenuControlsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MenuControlsActions @MenuControls => new MenuControlsActions(this);
     public interface IGameActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -455,6 +708,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnHeavyAttack(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
         void OnUseitem(InputAction.CallbackContext context);
+    }
+    public interface IMovementActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IMenuControlsActions
+    {
+        void OnNewaction(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
     }
 }

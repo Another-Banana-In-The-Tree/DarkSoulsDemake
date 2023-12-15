@@ -162,10 +162,12 @@ public class Player : MonoBehaviour
         if (menuActive)
         {
             MenuClose();
+            Controls.EnableGame();
         }
         else
         {
             MenuOpen();
+            Controls.MenuMode();
         }
     }
     private void MenuOpen()
