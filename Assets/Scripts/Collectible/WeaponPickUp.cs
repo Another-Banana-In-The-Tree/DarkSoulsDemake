@@ -7,10 +7,12 @@ public class WeaponPickUp : MonoBehaviour, Collectible
 
     [SerializeField] private WeaponInventoryitem heldWeapon;
     [SerializeField] private int amount;
+    private SpriteRenderer  spriteRender;
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
+        spriteRender = gameObject.GetComponent<SpriteRenderer>();
+        spriteRender.sprite = heldWeapon.GetSprite();
     }
 
     // Update is called once per frame

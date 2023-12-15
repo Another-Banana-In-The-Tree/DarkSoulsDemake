@@ -33,6 +33,12 @@ public class Controls : MonoBehaviour
         {
             player.InventoryMenu();
         };
+
+        _inputActions.Game.TwoHandToggle.performed += ctx =>
+        {
+            player.ToggleTwoHanded();
+        };
+
         EnableGame();
     }
 

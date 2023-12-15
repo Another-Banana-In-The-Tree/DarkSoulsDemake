@@ -71,6 +71,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TwoHandToggle"",
+                    ""type"": ""Button"",
+                    ""id"": ""db3d14d0-6f1e-42c2-be50-8aca8884887b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -271,6 +280,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Useitem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9399b367-bdce-4038-8e1e-26afdb2ec7a8"",
+                    ""path"": ""<Keyboard>/alt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TwoHandToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6ab0c8fe-f97a-4141-a08d-2ba9f4634de1"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TwoHandToggle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -459,6 +490,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Game_HeavyAttack = m_Game.FindAction("HeavyAttack", throwIfNotFound: true);
         m_Game_LightAttack = m_Game.FindAction("LightAttack", throwIfNotFound: true);
         m_Game_Useitem = m_Game.FindAction("Useitem", throwIfNotFound: true);
+        m_Game_TwoHandToggle = m_Game.FindAction("TwoHandToggle", throwIfNotFound: true);
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
@@ -532,6 +564,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_HeavyAttack;
     private readonly InputAction m_Game_LightAttack;
     private readonly InputAction m_Game_Useitem;
+    private readonly InputAction m_Game_TwoHandToggle;
     public struct GameActions
     {
         private @InputActions m_Wrapper;
@@ -541,6 +574,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @HeavyAttack => m_Wrapper.m_Game_HeavyAttack;
         public InputAction @LightAttack => m_Wrapper.m_Game_LightAttack;
         public InputAction @Useitem => m_Wrapper.m_Game_Useitem;
+        public InputAction @TwoHandToggle => m_Wrapper.m_Game_TwoHandToggle;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -565,6 +599,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Useitem.started += instance.OnUseitem;
             @Useitem.performed += instance.OnUseitem;
             @Useitem.canceled += instance.OnUseitem;
+            @TwoHandToggle.started += instance.OnTwoHandToggle;
+            @TwoHandToggle.performed += instance.OnTwoHandToggle;
+            @TwoHandToggle.canceled += instance.OnTwoHandToggle;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -584,6 +621,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Useitem.started -= instance.OnUseitem;
             @Useitem.performed -= instance.OnUseitem;
             @Useitem.canceled -= instance.OnUseitem;
+            @TwoHandToggle.started -= instance.OnTwoHandToggle;
+            @TwoHandToggle.performed -= instance.OnTwoHandToggle;
+            @TwoHandToggle.canceled -= instance.OnTwoHandToggle;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -708,6 +748,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnHeavyAttack(InputAction.CallbackContext context);
         void OnLightAttack(InputAction.CallbackContext context);
         void OnUseitem(InputAction.CallbackContext context);
+        void OnTwoHandToggle(InputAction.CallbackContext context);
     }
     public interface IMovementActions
     {

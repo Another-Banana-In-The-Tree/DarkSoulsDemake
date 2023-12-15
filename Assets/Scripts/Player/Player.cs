@@ -192,4 +192,9 @@ public class Player : MonoBehaviour
         Currentweapon = weapon;
         attackScript.SetCurrentWeapon(Currentweapon);
     }
+
+    public void ToggleTwoHanded()
+    {
+        usingTwoHands = !usingTwoHands;
+    }
 }
