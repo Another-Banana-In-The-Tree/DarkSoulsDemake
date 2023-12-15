@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    
+
     //STATS
     [field: Header("Stats")]
     [SerializeField] private float healthMax;
@@ -15,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float endurance;
     [SerializeField] private float strength;
     [SerializeField] private float dexterity;
+    [SerializeField] private float defenceV;
     //[SerializeField] private float resistance;
    // [SerializeField] private float intelligence;
    // [SerializeField] private float faith;
@@ -123,10 +127,7 @@ public class Player : MonoBehaviour
     }
     
 
-    public void TakeDamage(float damage)
-    {
-        healthTotal -= damage;
-    }
+    
 
     public void ReduceStamina(float usedStamina)
     {
@@ -197,4 +198,38 @@ public class Player : MonoBehaviour
     {
         usingTwoHands = !usingTwoHands;
     }
+
+
+
+    public void TakeDamage(float atk)
+    {
+        // Debug.Log("attack " + atk);
+        float damage = 0;
+
+
+        if (atk >= defenceV)
+        {
+            Debug.Log("more");
+            damage = ((atk * 1.5f - defenceV)) / 2.5f;
+        }
+        else
+        {
+            Debug.Log("less");
+            damage = ((atk * atk) / defenceV) / 3f;
+        }
+
+        Debug.Log(damage);
+        healthTotal -= damage;
+
+        if (healthTotal <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+
+    }
+
 }

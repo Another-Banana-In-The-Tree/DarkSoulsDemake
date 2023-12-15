@@ -37,22 +37,47 @@ public class PlayerEquipmentController : MonoBehaviour
         inventory.CloseInventoryUI();
     }
 
-    public void AssignWeaponItem(WeaponInventoryitem weaponInventoryitem)
+    public void AssignWeaponItem(WeaponInventoryitem item)
     {
-        AssignWeapon(weaponInventoryitem);
+        DestroyIfNotNull(currentWeapon);
+        currentWeapon = CreateNewItemInstance(item, rightHandAnchor);
+        player.EquipWeapon(item);
     }
+
+
+
+    public void AssignGloveItem()
+    {
+
+    }
+
+    public void AssignHelmetItem()
+    {
+
+    }
+
+    public void AssignChestItem()
+    {
+
+    }
+
+    public void AssignPantItem()
+    {
+
+    }
+    public void AssignShoeItem()
+    {
+
+    }
+
+
 
     public Transform getUIParent()
     {
         return inventoryParent;
     }
 
-    public void AssignWeapon(WeaponInventoryitem item)
-    {
-        DestroyIfNotNull(currentWeapon);
-        currentWeapon = CreateNewItemInstance(item, rightHandAnchor);
-        player.EquipWeapon(item);
-    }
+    
 
     private void DestroyIfNotNull(GameObject obj)
     {

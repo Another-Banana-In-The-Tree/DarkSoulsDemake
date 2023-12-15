@@ -22,6 +22,8 @@ public class Attack : MonoBehaviour
     private float strength;
     Vector2 facingDirection;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private float angle;
+    [SerializeField] private LayerMask obstructionLayer;
 
     private WeaponInventoryitem weapon;
 
@@ -110,12 +112,39 @@ public class Attack : MonoBehaviour
     }
     private void PerformAttack()
     {
-        RaycastHit2D hit;
+        //RaycastHit2D hit;
 
-        hit = Physics2D.Raycast(gameObject.transform.position, facingDirection, weapon.attackRange, enemyLayer);
+       // hit = Physics2D.Raycast(gameObject.transform.position, facingDirection, weapon.attackRange, enemyLayer);
         Debug.DrawRay(gameObject.transform.position, facingDirection * weapon.attackRange, Color.red, weapon.lightDelay);
 
-        if (hit.collider != null)
+        Collider2D[] targets = Physics2D.OverlapCircleAll(gameObject.transform.position, weapon.attackRange, enemyLayer);
+
+        if(targets.Length != 0)
+        {
+            foreach(Collider2D check in targets)
+            {
+                if (check.gameObject.TryGetComponent(out IDamageable hitObject))
+                {
+                    Debug.Log(check.gameObject.name);
+                    Vector2 directionToTarget = (check.gameObject.transform.position - transform.position).normalized;
+
+                    if(Vector2.Angle(facingDirection, directionToTarget) < angle / 2)
+                    {
+                        Debug.Log("within angle");
+                        float distanceToTarget = Vector2.Distance(transform.position, check.gameObject.transform.position);
+                        if(! Physics2D.Raycast(gameObject.transform.position, directionToTarget, distanceToTarget, obstructionLayer))
+                        {
+                            Debug.Log("No Obstructions");
+                            hitObject.TakeDamage(ATK);
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+       /* if (hit.collider != null)
         {
             Debug.Log("hit something");
             Debug.Log(hit.collider.gameObject.name);
@@ -130,7 +159,7 @@ public class Attack : MonoBehaviour
                 // Debug.Log("layer worked");
                 Debug.Log(ATK.ToString());
             }
-        }
+        }*/
 
         //ATK = 0;
         //CalculateDamage(mv, enemyDef);

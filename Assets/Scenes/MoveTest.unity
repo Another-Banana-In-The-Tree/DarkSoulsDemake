@@ -794,6 +794,7 @@ MonoBehaviour:
   endurance: 0
   strength: 16
   dexterity: 0
+  defenceV: 0
   _moveSpeed: 2.25
   _dodgeSpeed: 50
   encumberence: 1
@@ -908,6 +909,10 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  angle: 90
+  obstructionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1797383837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2062316523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -998,7 +1003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Health>k__BackingField: 100
   <defenceV>k__BackingField: 150
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 880275157645808143, guid: 2b2e9ace0ba02fc46b021eb608da1a89, type: 3}
 --- !u!61 &2062316524
 BoxCollider2D:
   m_ObjectHideFlags: 0
