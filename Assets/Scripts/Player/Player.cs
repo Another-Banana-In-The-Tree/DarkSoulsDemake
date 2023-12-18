@@ -203,6 +203,9 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float atk)
     {
+
+
+        attackScript.AttackInterrupted();
         // Debug.Log("attack " + atk);
         float damage = 0;
 

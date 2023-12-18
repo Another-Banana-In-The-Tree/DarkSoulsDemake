@@ -24,6 +24,7 @@ public class Attack : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float angle;
     [SerializeField] private LayerMask obstructionLayer;
+    private bool isCharging;
 
     private WeaponInventoryitem weapon;
 
@@ -142,27 +143,14 @@ public class Attack : MonoBehaviour
             }
         }
 
+    }
 
 
-       /* if (hit.collider != null)
-        {
-            Debug.Log("hit something");
-            Debug.Log(hit.collider.gameObject.name);
-            if(hit.collider.gameObject.TryGetComponent(out IDamageable hitObject))
-            {
-                Debug.Log("take Damage");
-                hitObject.TakeDamage(ATK);
-            }
-            
-            if (hit.collider.gameObject.layer == enemyLayer)
-            {
-                // Debug.Log("layer worked");
-                Debug.Log(ATK.ToString());
-            }
-        }*/
 
-        //ATK = 0;
-        //CalculateDamage(mv, enemyDef);
+    public void AttackInterrupted()
+    {
+        StopCoroutine("AttackChargeUp");
+        player.AttackSwitch();
     }
 }
 
