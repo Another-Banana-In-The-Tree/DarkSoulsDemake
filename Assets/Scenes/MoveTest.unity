@@ -488,7 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACYn+s5ljGDagIAACEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzoUx5iv01gIhPRCY0E4uvsjWGmuQJY8k85EM/70r2cYOnZ4Q7+2u3ttd+ZNwaQpIrNJrzdlGMSDfe8SdybdeS77AhR6U3PMPaGLeObOZC6I+5o1arhAfujSjcrCaJz/kQbjgAMFS8lTpfMUOsFDGGoRTKgwgpZV12RKhzx654E9/7lKueApn7vSBp3nQu+ExAWlBd0LDwfwpCEdhOF71g1md1iRVOaVMBM0LYM5AmxqGdfSwCpNorY5wNhIlBDe1LmKvhfe9LzLQ4IwzTtGm1zIcjBDIgB8y6wp3s7dpasDWmjS9LrnGflVlyU9VNTGn5lgJO1FRegXhkxdVFd38w/eHnk61yl+ae4eBu8NmPDm+0WtCje10uQsvO9J9f85UHGks4D0D+arWWpWSIWl16VJLA+Gy/Xu3tsggObZ4JfUBLIu24cHDdJyHm3d/WQiex44ajCtgL5RvuN8E0DiaXyjY74mpSyDqVPwx8JseugtVE89cG4tU7VI6ebEqtQslK98z56a0C6Ul6G6FAiQV9rrDOvZxhg/c/7OeqXs79e011zyJhxQPt/FB8EDt1Pk+LZOp8wZMti2t4BLaVjviFRu1UFJWK2a+ki5rX+qUJp2sQ8nZ19UicThKxpMgnqYjNp+l0J8M2XT2FAfTyRjSOB0Tv3tcok0qdpXOujs4NdkWl7hnzRelt9a08NvOND2v+UeuOvq4TNU+0QByW1VoOmRA4yX4LNmKcezPHqzl0s+bfEZEqOQILLoXirzT1cVqGrVVIlLwk7IOicjCf0Ii4uD7Lu80nDic3eVNsRu5/QVQSwMEFAAACAgAAJif60lwP2xtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKSkXGyialBklmacYqleVqqrqlhipm5RZKBmalJalpSmolSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAJif6zmWMYNqAgAAIQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAJif60lwP2xtAAAAeAAAAAkAJAAAAAAAAAAAAAAAtwIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABvAwAAAAA=
+    dataString: UEsDBBQAAAgIAACYn+uwsCWyaAIAACIFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzoUx5ru3FgjpgYQJ6eTii2ytsQZZ8khy+Mjw37uSbezS6Qnxdt/qvd2VvwiXpoDEKr3RnG0VA/K9R9yZfOu1wWc404OSe36FJueDM5u5JOpz3qjlCvGhoxmVg9U8+SEPwiUHCJaSp0rna3aApTLWIJxSYQBDWlnHlgh99cgZf/oLR7ngKZy50xVPi6B3w2MC0oLupIaDxTwIR2E4XveDWU1rSBWnlImgeQHMGWipYVhnD6s0idbqDGcjUUJwU+si9lJ43/siAw3OOOMUbXotw8EIgQz4IbOucJf9mqYGbK1J08uKa+xXVZb8VFUTc2qOlbBPKkqvIJx7UVXR7T/x/tCHU63y5+beYeDusBlPjm/0klBjO13uwquOdN+fExVHGgv4yEC+qI1WpWQYtLp01NJAuGr/3q0tM0iOLV5JfQDLom148DAd5+Hm3Z+XguexCw3GFbAXyjfcbwJoHM0vFOz3xNQlEHUqfht4p4fuQtWBJ66NxVDtUjp5sSq1SyVr3zPnprRLpSXoboUCJBX2ssM69nGGD7H/s56oezv17XWseRIPFA+3+UHwENqp031aJlOnLZjstbSCS2hb7QIv2KilkrJasa6lhrYvdUqTDu1Qcvb3bpE4HCXjSRBP0xFbzFLoT4ZsOpvHwXQyhjROx8QvH5fok4pdJbRuD45NtsUlLlrzSeltNC38ujNNTxt+zZVpM7lM1T7RAPK1qnAXDhovwXfJ1oxjg/ZgLZd+4OQrIkIlR2DRvVDkna7PVtOorRKRgn8q65CILP03JCIOvi/zTsMnh5O7vCl2I7c/UEsDBBQAAAgIAACYn+tJcD9sbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSkpFxsompQZJZmnGKpXlaqq6pYYqZuUWSgZmpSWpaUpqJUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACYn+uwsCWyaAIAACIFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACYn+tJcD9sbQAAAHgAAAAJACQAAAAAAAAAAAAAALUCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAbQMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -501,7 +501,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 4
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -1331,8 +1331,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
-  m_LinearDrag: 5
+  m_Mass: 4
+  m_LinearDrag: 7
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1361,8 +1361,8 @@ MonoBehaviour:
   <Health>k__BackingField: 120
   <defenceV>k__BackingField: 77
   dropPrefab: {fileID: 880275157645808143, guid: 2b2e9ace0ba02fc46b021eb608da1a89, type: 3}
-  speed: 50
-  rotationSpeed: 50
+  speed: 1.5
+  rotationSpeed: 25
   angleMod: 90
   nextWayPointDistance: 1
   target: {fileID: 1797383834}
@@ -1371,6 +1371,7 @@ MonoBehaviour:
   obstructMask:
     serializedVersion: 2
     m_Bits: 128
+  stoppingDistance: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

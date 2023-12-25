@@ -9,8 +9,11 @@ public class Skeleton : Enemy
     [SerializeField] private float radius;
     [SerializeField] private float angle;
     [SerializeField] private LayerMask obstructMask;
+    [SerializeField] private float stoppingDistance;
     //[SerializeField] private Transform playerPos;
 
+    //[field: Header("Combat")]
+    
 
     private void FixedUpdate()
     {
@@ -18,13 +21,14 @@ public class Skeleton : Enemy
         {
             canWalk = true;
             UpdatePath();
+            Move();
         }
         else
         {
             canWalk = false;
         }
 
-        Debug.Log(canWalk);
+        //Debug.Log(canWalk);
     }
 
 
@@ -51,15 +55,15 @@ public class Skeleton : Enemy
 
         if (toPlayer.magnitude <= radius)
         {
-            Debug.Log("WithinRange");
+           // Debug.Log("WithinRange");
             if (Vector2.Dot(toPlayer.normalized, transform.up) > Mathf.Cos(angle * 0.5f * Mathf.Deg2Rad))
             {
 
 
-                Debug.Log("WithinAngle");
+               // Debug.Log("WithinAngle");
                 if (!Physics2D.Raycast(transform.position, toPlayer.normalized, Vector2.Distance(transform.position, target.position), obstructMask))
                 {
-                    Debug.Log("NoObstructions");
+                    //Debug.Log("NoObstructions");
                     return (true);
                 }
                 else
