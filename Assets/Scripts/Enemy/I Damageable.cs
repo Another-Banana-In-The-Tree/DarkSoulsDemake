@@ -14,16 +14,16 @@ public interface IDamageable
 
         if (atk >= defenceV)
         {
-            Debug.Log("more");
+            //Debug.Log("more");
             damage = ((atk * 1.5f - defenceV)) /2.5f;
         }
         else
         {
-            Debug.Log("less");
+            //Debug.Log("less");
             damage = ((atk * atk) / defenceV)/3f;
         }
 
-        Debug.Log(damage);
+       // Debug.Log(damage);
         Health -= damage;
 
         if(Health <= 0) 
